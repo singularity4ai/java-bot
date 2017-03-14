@@ -354,6 +354,11 @@
             // ('I did not understand your intent, please rephrase your question', etc..)
             if (intent.confidence >= 0.75) {
                 responseText = 'I understood your intent was ' + intent.intent;
+                if(intent.intent==='Service_Management-Price_Plan_Inquiry') {
+                    appendRecvedMsg('Performing the tradeoff analysis...','');
+                    performTradeoffs();
+                    //return;
+                }
             } else if (intent.confidence >= 0.5) {
                 responseText = 'I think your intent was ' + intent.intent;
             } else {
@@ -362,6 +367,13 @@
         }
         appendRecvedMsg(responseText,'');
         getLocation();
+    }
+
+    //TODO: Use the tradeoff data as you can
+    function performTradeoffs() {
+        $.post("rest/chats/tradeoffs",function (data) {
+            console.log('Data from tradeoffs : '+data);
+        });
     }
 
     function getLocation() {

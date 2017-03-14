@@ -51,6 +51,14 @@ public class ChatbotRestService {
     }
 
     @POST
+    @Path("/tradeoffs")
+    public String performTradeoffs() {
+        JSONObject tradeoffs = utilities.tradeOffAnalytics();
+        return RestUtilities.buildSuccessResponse(tradeoffs,"data");
+    }
+
+
+    @POST
     @Path("/messages")
     public String readAllMessages(String data) {
         return RestUtilities.buildSuccessResponse(data,"data");
