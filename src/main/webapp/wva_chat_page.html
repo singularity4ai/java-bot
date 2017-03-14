@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>IBM Watson Virtual Agent Chat Widget Sample</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+<style>
+  html, body, iframe { width: 100%; height:100%; padding:0; margin:0; }
+  #ibm_chat_root { position:fixed; bottom:0; right: 20px; height: 80%; min-height:400px; width:300px; background:#000; }
+</style>
+</head>
+<body>
+<div id="ibm_chat_root"></div>
+<iframe style="width:100%; height:100%" src="http://www.telenor.com"></iframe>
+<!--
+https://unpkg.com/@watson-virtual-agent/chat-widget@X.X.X/dist/chat.min.js for a specific version, where X.X.X is the semantic version of the chat widget.
+In your production environment, we recommend locking down your widget version.
+-->
+<script src='https://unpkg.com/@watson-virtual-agent/chat-widget/dist/chat.min.js'></script>
+<script>
+  var config = {
+    el: 'ibm_chat_root',
+    baseURL: 'https://api.ibm.com/virtualagent/run/api/v1',
+    botID: '267683c2-dd55-42e2-9b89-bdf2d2968f91',
+    XIBMClientID: 'eef75d42-df07-40ce-9828-6e219dc6bfff',
+    XIBMClientSecret: 'F3kL5sD7lX4yJ4rH6vB0wU8qI7oO4uQ1wQ4kW8mX7dE7pH3gO6'
+  };
+  window.IBMChat.init(config);
+</script>
+</body>
+</html>
